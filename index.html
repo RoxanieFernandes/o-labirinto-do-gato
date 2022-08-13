@@ -7,13 +7,22 @@
     <title>Snacks Cat</title>
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./js/index.js" defer></script>
+    <style>
+        @import url('http://fonts.cdnfonts.com/css/berlin-sans-fb-demi');
+    </style>
 </head>
 <body>
-    <div id = "gameName">
-        <h1>Snacks Cat</h1>
+    <div class="gameHome">
+        <div class="home">
+            <div id = "gameName">
+                <h1>Snacks Cat</h1>
+            </div>
+            <button id="start-btn">START GAME</button>
+        </div>
     </div>
-    <button id="start-btn">START GAME</button>
-    
-
+    <div class="maze">
+        <canvas id="canvas" width="200" height="200"></canvas>
+        
+    </div>
 </body>
 </html>
