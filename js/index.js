@@ -3,24 +3,23 @@ const startBtn = document.getElementById("start-btn");
 // startBtn.onclick=drawGame;
 
 (function(){
-	//elemento canvas e contexto de renderização
 	var cnv = document.querySelector("canvas");
 	var ctx = cnv.getContext("2d");
     var height = cnv.height, width = cnv.width;
     var left = 37, up = 38, right = 39, down = 40;
 	var mvLeft = mvUp = mvRight = mvDown = false;
-	
+	const walls = [];
+    const freeEspace = [];
+
 	//tamanho dos blocos
-	var tileSize = 10;
+	var tileSize = 40;
 
-    var wall = [];
-
-    //objeto player
+        //player
     var player = {
 		x: tileSize+2,
 		y: tileSize+2,
-		width: 12,
-		height: 12,
+		width: 42,
+		height: 42,
 		speed: 2
 	};
 	
@@ -48,7 +47,42 @@ const startBtn = document.getElementById("start-btn");
 		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 	];
 
-    //entradas das setas do teclado
+    for(var row in maze){
+		for(var column in maze[row]){
+			var tile = maze[row][column];
+			
+			if(tile === 1){
+				var wall = {
+					x: tileSize*column,
+					y: tileSize*row,
+					width: tileSize,
+					height: tileSize
+				};
+
+				walls.push(wall);
+			}
+		}
+	}
+
+	function blockRectangle(objA,objB){
+		var distX = (objA.x + objA.width/2) - (objB.x + objB.width/2);
+		var distY = (objA.y + objA.height/2) - (objB.y + objB.height/2);
+		
+		var sumWidth = (objA.width + objB.width)/2;
+		var sumHeight = (objA.height + objB.height)/2;
+		
+		if(Math.abs(distX) < sumWidth && Math.abs(distY) < sumHeight){
+			var overlapX = sumWidth - Math.abs(distX);
+			var overlapY = sumHeight - Math.abs(distY);
+			
+			if(overlapX > overlapY){
+				objA.y = distY > 0 ? objA.y + overlapY : objA.y - overlapY;
+			} else {
+				objA.x = distX > 0 ? objA.x + overlapX : objA.x - overlapX;
+			}
+		}
+	}
+
 	window.addEventListener("keydown",keydownHandler,false);
 	window.addEventListener("keyup",keyupHandler,false);
 	
@@ -88,8 +122,6 @@ const startBtn = document.getElementById("start-btn");
 		}
 	}
 	
-	
-	//atualização cíclica do programa
 	function update(){
 		//movimento do player
 		if(mvLeft && !mvRight){
@@ -104,23 +136,22 @@ const startBtn = document.getElementById("start-btn");
 		if(mvDown && !mvUp){
 			player.y += player.speed;
 		}
-	}
-	
-	//renderização (desenha na tela)
+        for(var i in walls){
+			var wall = walls[i];
+			blockRectangle(player,wall);
+		}    
+    }
+
+
 	function render(){
         ctx.clearRect(0,0,width,height);
         ctx.save();
-		//procedimento que varre as linhas e colunas do labirinto
 		for(var row in maze){
 			for(var column in maze){
-				//pega o elemento armazenado em uma determinada linha/coluna
 				var tile = maze[row][column];
-				//se for um tijolo...
 				if(tile === 1){
-					//...especifica as dimensões e a posição...
 					var x = column*tileSize;
 					var y = row*tileSize;
-					//...e desenha na tela
 					ctx.fillRect(x,y,tileSize,tileSize);
 				}
 			}

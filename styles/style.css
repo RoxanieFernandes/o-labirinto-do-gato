@@ -1,10 +1,8 @@
-/* @media (min-width: 768px){ */
-
 .gameHome {
-    height: 920px;
+    height: 890px;
     background-image:url(../images/background-3.png);
     background-repeat: no-repeat;
-    background-size: 110%;
+    background-size: 100%;
     background-position-x: left;
     display: flex;
     flex-direction: column;
@@ -43,17 +41,19 @@
 }  
 
 .maze {
-    height: 920px;
+    height: 890px;
     background-image:url(../images/background-2.jpg);
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 #canvas {
     margin: none;
     display: flex;
-    align-items: center;
     justify-content: center;
+    color: red;
+
     /* border: #025159 solid; */
 
 }
