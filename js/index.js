@@ -225,7 +225,7 @@ Timer.prototype.count = function(s) {
 function loop() {
   update();
   render();
-  requestAnimationFrame(loop,cnv);
+  requestAnimationFrame(loop);
 }
 
 
