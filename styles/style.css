@@ -58,6 +58,7 @@ a {
     width: 150px;
     height: 150px;
     margin-top: 60px;
+    margin-left: -150px;
     font-family: 'Berlin Sans FB Demi', sans-serif;
     font-size: 35px;
     font-weight: bold;
@@ -70,4 +71,13 @@ a {
 .maze {
     padding-top: 30px;
     display: flex;
+}
+
+#snack {
+    margin-top: 480px;
+    margin-left: -150px;
+    display: flex;
+    justify-content: left;
+    
+
 }

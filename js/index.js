@@ -17,14 +17,23 @@ const startBtn = document.getElementById("start-btn");
 
   //tamanho dos blocos
   var tileSize = 22;
+  var tileScrSize = 500;
+
+  var img = new Image();
+      img.src = "../images/catfaceA.png";
+      img.addEventListener("load",function(){
+        requestAnimationFrame(loop);
+      },false);
 
   //player
   var player = {
-    x: tileSize + 2,
-    y: tileSize + 2,
+    x: tileSize - 20,
+    y: tileSize + 70,
     width: 32,
     height: 32,
     speed: 2,
+    srcX: 0,
+    srcY:0,
   };
 
   //mapa do labirinto
@@ -165,8 +174,13 @@ const startBtn = document.getElementById("start-btn");
         }
       }
     }
-    ctx.fillStyle = "#024059" ;
-    ctx.fillRect(player.x, player.y, player.width, player.height);
+    ctx.fillStyle = "#024059";
+    ctx.drawImage(
+      img,
+      player.srcX, player.srcY, player.width, player.height,
+      player.x, player.y, player.width, player.height,
+    )
+    // ctx.fillRect(player.x, player.y, player.width, player.height);
     ctx.restore();
   }
 
@@ -189,5 +203,5 @@ const startBtn = document.getElementById("start-btn");
 //     start()
 //   })
 
-  requestAnimationFrame(loop);
+  
 })();
