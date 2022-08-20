@@ -1,9 +1,10 @@
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     background-color: #024059;
-    height: 70px;
+    height: 60px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -42,18 +43,22 @@ a {
 }
 
 .gameHome {
-    height: 100%;
-    margin-top: 70px;
-    padding-right: 10px;
-    padding-left: 45px;
+    position: static;
+    margin-top: 15px;
+    margin-bottom: none;
+    padding-left: 120px;
     background-image:url(../images/background-2.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 50%;
     display: flex;
-    justify-content: space-evenly;      
+    justify-content: space-around;
 }
 
-
+#botao {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 #start-btn {
     width: 150px;
     height: 150px;
@@ -69,8 +74,9 @@ a {
 }  
 
 .maze {
-    padding-top: 30px;
+    padding-top: 50px;
     display: flex;
+    margin-bottom: none;
 }
 
 #snack {
@@ -78,6 +84,19 @@ a {
     margin-left: -150px;
     display: flex;
     justify-content: left;
-    
+}
 
+#mostrador {
+    width: 120px;
+    height: 60px;
+    margin-top: 100px;
+    margin-bottom: 460px;
+    font-size: 48px;
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+    color: #6ba7bf;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    border-radius: 180px;
+    box-shadow: 0 2px 15px 0 #fff, 0 6px 12px 0 #025159;
 }

@@ -1,6 +1,6 @@
 console.log("JS connected");
-const startBtn = document.getElementById("start-btn");
-
+const startBtn = document.querySelector("#start-btn");
+var mostrador = document.querySelector('#mostrador');
 
 (function () {
   var cnv = document.querySelector("canvas");
@@ -48,7 +48,7 @@ const startBtn = document.getElementById("start-btn");
     [1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1],
@@ -59,10 +59,9 @@ const startBtn = document.getElementById("start-btn");
     [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    [1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -163,7 +162,7 @@ const startBtn = document.getElementById("start-btn");
 
   function render() {
     ctx.clearRect(0, 0, width, height);
-    // ctx.save();
+  
     for (var row in maze) {
       for (var column in maze) {
         var tile = maze[row][column];
@@ -180,7 +179,7 @@ const startBtn = document.getElementById("start-btn");
       player.srcX, player.srcY, player.width, player.height,
       player.x, player.y, player.width, player.height,
     )
-    // ctx.fillRect(player.x, player.y, player.width, player.height);
+   
     ctx.restore();
   }
 
@@ -190,18 +189,44 @@ const startBtn = document.getElementById("start-btn");
     requestAnimationFrame(loop);
   }
 
-//   const drawGame = render ()
+  startBtn.addEventListener('click', function() {
+    new Timer(1, mostrador, function() {
+        alert('O tempo acabou!');
+    }).start();
+});
 
-//   function start () {
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-
-//   }
-
-// //   startBtn.onclick = start;
-//   startBtn.addEventListener('click', () => {
-//     start()
-//   })
-
+function Timer(mins, target, cb) {
+    this.counter = mins * 45;
+    this.target = target;
+    this.callback = cb;
+}
+Timer.prototype.pad = function(s) {
+    return (s < 10) ? '0' + s : s;
+}
+Timer.prototype.start = function(s) {
+    this.count();
+}
+Timer.prototype.stop = function(s) {
+    this.count();
+}
+Timer.prototype.done = function(s) {
+    if (this.callback) this.callback();
+}
+Timer.prototype.display = function(s) {
+    this.target.innerHTML = this.pad(s);
+}
+Timer.prototype.count = function(s) {
+    var self = this;
+    self.display.call(self, self.counter);
+    self.counter--;
+    var clock = setInterval(function() {
+        self.display(self.counter);
+        self.counter--;
+        if (self.counter < 0) {
+            clearInterval(clock);
+            self.done.call(self);
+        }
+    }, 1000);
+}
   
 })();
