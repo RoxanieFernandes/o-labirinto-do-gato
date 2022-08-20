@@ -183,12 +183,6 @@ var mostrador = document.querySelector('#mostrador');
     ctx.restore();
   }
 
-  function loop() {
-    update();
-    render();
-    requestAnimationFrame(loop);
-  }
-
   startBtn.addEventListener('click', function() {
     new Timer(1, mostrador, function() {
         alert('Game Over! The cat is hungry!');
@@ -228,5 +222,11 @@ Timer.prototype.count = function(s) {
         }
     }, 1000);
 }
-  
+function loop() {
+  update();
+  render();
+  requestAnimationFrame(loop,cnv);
+}
+
+
 })();
