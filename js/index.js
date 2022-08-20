@@ -18,7 +18,7 @@ var mostrador = document.querySelector('#mostrador');
   var tileSize = 22;
 
   var img = new Image();
-      img.src = "../images/catfaceA.png";
+      img.src = "./images/catfaceA.png";
       img.addEventListener("load",function(){
         requestAnimationFrame(loop);
       },false);
