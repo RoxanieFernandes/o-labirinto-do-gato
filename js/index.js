@@ -191,7 +191,7 @@ var mostrador = document.querySelector('#mostrador');
 
   startBtn.addEventListener('click', function() {
     new Timer(1, mostrador, function() {
-        alert('O tempo acabou!');
+        alert('Game Over! The cat is hungry!');
     }).start();
 });
 
