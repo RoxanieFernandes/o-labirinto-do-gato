@@ -13,11 +13,9 @@ var mostrador = document.querySelector('#mostrador');
     down = 40;
   var mvLeft = (mvUp = mvRight = mvDown = false);
   const walls = [];
-  const freeEspace = [];
 
   //tamanho dos blocos
   var tileSize = 22;
-  var tileScrSize = 500;
 
   var img = new Image();
       img.src = "../images/catfaceA.png";
@@ -160,6 +158,7 @@ var mostrador = document.querySelector('#mostrador');
     }
   }
 
+  // renderização
   function render() {
     ctx.clearRect(0, 0, width, height);
   
@@ -182,7 +181,7 @@ var mostrador = document.querySelector('#mostrador');
    
     ctx.restore();
   }
-
+// timer contador
   startBtn.addEventListener('click', function() {
     new Timer(1, mostrador, function() {
         alert('Game Over! The cat is hungry!');
