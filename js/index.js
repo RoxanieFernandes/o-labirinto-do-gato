@@ -17,8 +17,10 @@ var mostrador = document.querySelector('#mostrador');
   //tamanho dos blocos
   var tileSize = 22;
 
+  // images\catfaceA.png
+
   var img = new Image();
-      img.src = "./images/catfaceA.png";
+      img.src = "./images/cat.png";
       img.addEventListener("load",function(){
         requestAnimationFrame(loop);
       },false);
