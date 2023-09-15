@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snacks Cat</title>
+    <title>Labirinto do Gato</title>
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./js/index.js" defer></script>
     <style>
@@ -13,15 +13,21 @@
 </head>
 <body>
     <header>
-        <h1>Snacks Cat</h1>
+        <h1>Labirinto do Gato</h1>
         
     </header>
     
     <div class="gameHome">
-        <div id="botao">
-            <button id="start-btn">START GAME</button>
+        <div class="gameHome__start">
+            <div id="botao">
+                <button id="start-btn">JOGAR</button>
+            </div>
+            
+            <div class="keyboard">
+                <img src="./images/key.png" alt="keyboard">
+            </div>
         </div>
-        
+
         <div class="maze">
             <canvas id="canvas" width="600" height="590"></canvas>
         </div>

@@ -1,13 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
 
 header {
     position: fixed;
     top: 0;
-    left: 0;
     background-color: #024059;
     height: 60px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
 }
 
 h1 {
@@ -45,32 +49,49 @@ a {
 .gameHome {
     position: static;
     margin-top: 15px;
-    margin-bottom: none;
-    padding-left: 120px;
     background-image:url(../images/background-2.jpg);
     background-size: 50%;
     display: flex;
     justify-content: space-around;
 }
 
+.gameHome__start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    margin-top: 60px;
+}
+
+.keyboard {
+    display: flex;
+    justify-content: center;
+}
+
+.keyboard > img {
+    width: 10rem;
+}
+
 #botao {
+    margin-bottom: 50px;
     width: 100px;
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    
 }
 #start-btn {
     width: 150px;
     height: 150px;
-    margin-top: 60px;
-    margin-left: -150px;
+    padding: 20px;
     font-family: 'Berlin Sans FB Demi', sans-serif;
     font-size: 35px;
     font-weight: bold;
     color: #6ba7bf;
-    border-radius: 100%;
+    border-radius: 50%;
     border: none;
     box-shadow: 0 2px 15px 0 #fff, 0 6px 12px 0 #025159;
+    cursor: pointer;
 }  
 
 .maze {
